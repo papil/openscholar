@@ -19,6 +19,7 @@ before_script:
   - mv drupal-7.18 drupal
   - cd drupal
   # Install apache
+  - ls -al
   - bash scripts/setup
   - bash scripts/build.sh
   # Install a multi-tanent, developemnt site.
