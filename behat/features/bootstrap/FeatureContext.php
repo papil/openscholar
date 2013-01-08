@@ -10,6 +10,11 @@ require 'vendor/autoload.php';
 class FeatureContext extends DrupalContext {
 
   /**
+   * Variable for storing the random string we used in the text.
+   */
+  private $randomText;
+
+  /**
    * Initializes context.
    *
    * Every scenario gets its own context object.
@@ -131,4 +136,49 @@ class FeatureContext extends DrupalContext {
     sleep($sec);
   }
 
+  /**
+   * Generate random text.
+   */
+  private function randomizeMe($length = 10) {
+    return $this->randomText = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, $length);
+  }
+
+  /**
+   * @Given /^I fill "([^"]*)" with random text$/
+   */
+  public function iFillWithRandomText($elementId) {
+    $page = $this->getSession()->getPage();
+    $element = $page->find('xpath', "//input[@id='{$elementId}']");
+
+    if (!$element) {
+      throw new Exception(sprintf("Could not find the element with the id %s", $elementId));
+    }
+
+    $element->setValue($this->randomizeMe());
+  }
+
+  /**
+   * @Given /^I should wait and see "([^"]*)"$/
+   */
+  public function iShouldWaitAndSee($text) {
+    $page = $this->getSession()->getPage();
+    $found = FALSE;
+    $i = 0;
+
+    while ($i <= 30) {
+      $find = $page->find('xpath', "//*[contains(.,'{$text}')]");
+
+      if ($find) {
+        $found = TRUE;
+        break;
+      }
+
+      sleep(1);
+      $i++;
+    }
+
+    if (!$found) {
+      throw new Exception(sprintf("The text '%s' was not found on the screen"));
+    }
+  }
 }
