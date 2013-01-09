@@ -173,4 +173,14 @@ class FeatureContext extends DrupalContext {
 
     $element->setValue($this->randomizeMe());
   }
+
+
+  /**
+   * @Given /^I visit the site "([^"]*)"$/
+   */
+  public function iVisitTheSite($site) {
+    if ($site == "random") {
+      $this->visit("/" . $this->randomText);
+    }
+  }
 }
