@@ -6,7 +6,6 @@ body {
     font-size: 14px;
     line-height: 24px;
 }
-
 a {color: #4384C4;}
 
 
@@ -24,12 +23,12 @@ a {color: #4384C4;}
 /* Site Info */
 
 #boxes-box-site_info,
-#boxes-box-site_info a {  
+#boxes-box-site_info a {
 font-family: 'Georgia,serif';
 color:#161616;
 }
 
-#boxes-box-site_info p a  {  
+#boxes-box-site_info p a  {
 display:none;
 }
 
@@ -37,9 +36,19 @@ display:none;
 
 #boxes-box-site_info h2 {font-size: 24px;font-weight: normal;font-style: italic;}
 
+#boxes-box-site_info,
+#boxes-box-site_info a {
+font-family: 'Georgia,serif';
+color:#161616;
+}
 
+#boxes-box-site_info p a  {
+display:none;
+}
 
+#boxes-box-site_info h1 {font-size: 30px;font-weight: normal;margin:70px 0 -50px 0; line-height: 10px;}
 
+#boxes-box-site_info h2 {font-size: 24px;font-weight: normal;font-style: italic;}
 
 /* Menus */
 
@@ -52,7 +61,7 @@ display:none;
 
 #menu-bar ul.nice-menu li {
     margin-right: 20px;
-  
+
 }
 
 .region-header-third ul.nice-menu {
@@ -147,7 +156,7 @@ table .mini-day-on a {
 
 .ui-tabs .ui-tabs-nav li,
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected {
-  
+
     padding: 10px 0;
 }
 

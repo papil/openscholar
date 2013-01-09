@@ -22,14 +22,12 @@
      width: 980px;
 }
 
-
-
 .content-left.content-right .at-panel .region.region-content-first {
      border-right: none;
 }
 
-.content-left.content-right .at-panel .region.region-content-first, 
-.content-left.content-right .at-panel .region.region-content-second, 
+.content-left.content-right .at-panel .region.region-content-first,
+.content-left.content-right .at-panel .region.region-content-second,
 .content-left.content-right .at-panel .region.region-content-bottom {
      clear: none;
      display: inline;
@@ -38,7 +36,7 @@
      width: 32%;
 }
 
-.content-left.content-right .at-panel .region.region region-content-first, 
+.content-left.content-right .at-panel .region.region region-content-first,
 .content-left.content-right .at-panel .region.region-content-second {
      margin-right: 15px;
 }
