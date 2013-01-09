@@ -156,29 +156,4 @@ class FeatureContext extends DrupalContext {
 
     $element->setValue($this->randomizeMe());
   }
-
-  /**
-   * @Given /^I should wait and see "([^"]*)"$/
-   */
-  public function iShouldWaitAndSee($text) {
-    $page = $this->getSession()->getPage();
-    $found = FALSE;
-    $i = 0;
-
-    while ($i <= 30) {
-      $find = $page->find('xpath', "//*[contains(.,'{$text}')]");
-
-      if ($find) {
-        $found = TRUE;
-        break;
-      }
-
-      sleep(1);
-      $i++;
-    }
-
-    if (!$found) {
-      throw new Exception(sprintf("The text '%s' was not found on the screen"));
-    }
-  }
 }
