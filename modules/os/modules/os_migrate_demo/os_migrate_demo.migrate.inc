@@ -37,7 +37,6 @@ class OsMigrateBiologyTaxonomyTerm extends OsMigrate {
  * Migrate "Math" terms.
  */
 class OsMigrateMathTaxonomyTerm extends OsMigrate {
-
   public $dependencies = array(
     'OsMigratePersonalNode',
   );
@@ -438,6 +437,13 @@ class OsMigrateBookNode extends OsMigrate {
     $this->addFieldMapping('body', 'body');
     $this->addFieldMapping(OG_AUDIENCE_FIELD, OG_AUDIENCE_FIELD)
       ->sourceMigration(array('OsMigratePersonalNode', 'OsMigrateProjectNode'));
+  }
+
+  public function prepare($entity, $row) {
+    // Let know the book module that this is a new book.
+    $entity->book = array(
+      'bid' => 'new',
+    );
   }
 
   public function prepare($entity, $row) {
